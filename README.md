@@ -215,7 +215,7 @@ See the failure email report for built-in diagnostics, or use these common check
 
 ## 👤 Author
 Although this script has been tested extensively and successfully, PLEASE ensure you are thoroughly testing this on your own prior to introducing this into production.
-Use at your own risk. 
+You are free to use this script freely at your own risk. Please credit me if you do 🙂
 
 
 **Eddie Jimenez**  
