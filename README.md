@@ -1,6 +1,6 @@
 # IntuneBackup Solution
 
-Automated Intune backup solution to be run inside an Azure Automation Runbook.
+Automated Intune backup solution to be run inside an Azure Automation Runbook. This solution grabs Intune data and copies it to a SharePoint Online location. 
 
 ## 📋 Overview
 
@@ -215,7 +215,7 @@ See the failure email report for built-in diagnostics, or use these common check
 
 ## 👤 Author
 Although this script has been tested extensively and successfully, PLEASE ensure you are thoroughly testing this on your own prior to introducing this into production.
-You are free to use this script freely at your own risk. Please credit me if you do 🙂
+You are free to use this script at your own risk. Please credit me if you do 🙂
 
 
 **Eddie Jimenez**  
