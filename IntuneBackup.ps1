@@ -95,7 +95,7 @@
 [CmdletBinding()]
 param(
     [Parameter(Mandatory = $false)]
-    [string]$EmailRecipient = 'YOUR RECIPIENT EMAIL' # Update with your recipient email. This can be a testing email. This can be adjusted within the runbook settings or schedules. 
+    [string]$EmailRecipient = 'YOUR RECIPIENT EMAIL' # Update with your recipient email. This can be a testing email. This can also be adjusted within the runbook settings or schedules. 
 )
 
 #Store Start Time
