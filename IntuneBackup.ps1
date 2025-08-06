@@ -36,7 +36,7 @@
     
 .PARAMETER EmailRecipient
     Comma-separated list of email addresses to receive backup status notifications.
-    Default: 'eddie.jimenez@ayahealthcare.com'
+    Default: 'YOUR TEST EMAIL
     
 .EXAMPLE
     # Run with default email recipient
@@ -64,19 +64,11 @@
     - SharePoint site permissions for backup storage
     
     SharePoint Structure:
-    /sites/EndpointOps/Shared Documents/Intune Backups/YYYY/MM/
+    /sites/YOUR TEAM SITE/Intune Backups/YYYY/MM/
     
-    Development History:
-    - Started with IntuneBackupAndRestore module compatibility issues
-    - Module doesn't support Managed Identity (requires interactive authentication)
-    - Developed direct Graph API approach to bypass module limitations
-    - Implemented comprehensive category coverage matching original module
-    - Added individual file generation (vs consolidated JSON)
-    - Enhanced with professional email styling and accurate duration tracking
-    - Optimized for Azure Automation PowerShell 5.1 runtime environment
     
 .AUTHOR
-    Eddie Jimenez
+    Eddie Jimenez @edtrax
     
 .VERSION
     6.0 - Complete Production Solution
@@ -103,7 +95,7 @@
 [CmdletBinding()]
 param(
     [Parameter(Mandatory = $false)]
-    [string]$EmailRecipient = 'eddie.jimenez@ayahealthcare.com'
+    [string]$EmailRecipient = 'YOUR RECIPIENT EMAIL' # Update with your recipient email. This can be a testing email. This can be adjusted within the runbook settings or schedules. 
 )
 
 #Store Start Time
@@ -438,7 +430,7 @@ foreach ($categoryName in $categories.Keys) {
         $month = (Get-Date).ToString("MM")
         
         # Get SharePoint site
-        $siteUri = "https://graph.microsoft.com/v1.0/sites/ayahealthcare.sharepoint.com:/sites/EndpointOps"
+        $siteUri = "YOUR SITE URI" # Update with your site URI. Example: `https://graph.microsoft.com/v1.0/sites/{tenant}.sharepoint.com:/sites/{site-name}
         $site = Invoke-RestMethod -Uri $siteUri -Headers $headers -Method GET
         $siteId = $site.id
 
@@ -479,11 +471,12 @@ foreach ($categoryName in $categories.Keys) {
         }
 
         $sharePointSuccess = $true
-        $sharePointPath = "/sites/EndpointOps/Shared Documents/$currentPath"
+        $sharePointPath = "/sites/YOUR SHAREPOINT PATH/$currentPath"   # Update with your Sharepoint Online path. Example: ITadmins/Intune Backups
+
         # Construct a manual SharePoint web URL for the uploaded folder
         Add-Type -AssemblyName System.Web
         $encodedPath = [System.Web.HttpUtility]::UrlEncode($sharePointPath)
-        $shareableLink = "https://ayahealthcare.sharepoint.com/sites/EndpointOps/Shared%20Documents/Forms/AllItems.aspx?id=$encodedPath"
+        $shareableLink = "YOUR SHAREPOINT URL$encodedPath"   # Update with your Sharepoint Online URL. Example: https://{tenant}.sharepoint.com/sites/{site-name}/
 
     } catch {
         Write-Warning "SharePoint upload failed: $($_.Exception.Message)"
@@ -491,10 +484,10 @@ foreach ($categoryName in $categories.Keys) {
         $sharePointPath = "Upload failed"
     }
 
-    # Calculate Script Runtime after operations complete
-    $scriptEnd = Get-Date
-    $duration = $scriptEnd - $scriptStart
-    $durationFormatted = "{0:hh\:mm\:ss}" -f $duration
+        # Calculate Script Runtime after operations complete
+        $scriptEnd = Get-Date
+        $duration = $scriptEnd - $scriptStart
+        $durationFormatted = "{0:hh\:mm\:ss}" -f $duration
 
     
     # Send email
@@ -591,7 +584,7 @@ foreach ($categoryName in $categories.Keys) {
             }
             
             $requestBody = @{ message = $message } | ConvertTo-Json -Depth 10
-            $emailUri = "https://graph.microsoft.com/v1.0/users/ITAutomation@ayahealthcare.com/sendMail"
+            $emailUri = "https://graph.microsoft.com/v1.0/users/YOUR AUTOMATION ACCOUNT EMAIL/sendMail"      # Update with your automation account email. Example: automation@yourdomain.com
             Invoke-MgGraphRequest -Uri $emailUri -Method POST -Body $requestBody -ContentType "application/json"
         }
         
@@ -712,7 +705,7 @@ foreach ($categoryName in $categories.Keys) {
             }
             
             $requestBody = @{ message = $message } | ConvertTo-Json -Depth 10
-            $emailUri = "https://graph.microsoft.com/v1.0/users/ITAutomation@ayahealthcare.com/sendMail"
+            $emailUri = "https://graph.microsoft.com/v1.0/users/YOUR AUTOMATION ACCOUNT EMAIL/sendMail".      # Update with your automation account email. Example: automation@yourdomain.com
             Invoke-MgGraphRequest -Uri $emailUri -Method POST -Body $requestBody -ContentType "application/json"
         }
         
