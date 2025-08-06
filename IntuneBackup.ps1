@@ -202,7 +202,7 @@ try {
     New-Item -Path $backupFolder -ItemType Directory -Force | Out-Null
     Write-Output "Backup folder: $backupFolder"
     
-    # Define backup categories
+    # Define backup categories. This array can be adjusted to add or comment out categories. 
     $categories = @{
         # Device Management
         "DeviceConfigurations" = "https://graph.microsoft.com/beta/deviceManagement/deviceConfigurations"
@@ -238,7 +238,7 @@ try {
         "MacOSSoftwareUpdateAccountSummaries" = "https://graph.microsoft.com/beta/deviceManagement/macOSSoftwareUpdateAccountSummaries"
         
         # Security & Compliance
-        #"ConditionalAccessPolicies" = "https://graph.microsoft.com/beta/identity/conditionalAccess/policies"
+        "ConditionalAccessPolicies" = "https://graph.microsoft.com/beta/identity/conditionalAccess/policies"
         "NamedLocations" = "https://graph.microsoft.com/beta/identity/conditionalAccess/namedLocations"
         "AuthenticationStrengthPolicies" = "https://graph.microsoft.com/beta/identity/conditionalAccess/authenticationStrengths/policies"
         
@@ -268,7 +268,7 @@ try {
         # Reusable Settings
         "ReusablePolicySettings" = "https://graph.microsoft.com/beta/deviceManagement/reusablePolicySettings"
         
-        # Azure AD / Groups
+        # Azure AD / Groups - NOTE: Depending on the size of your tenant, this could be MASSIVE. Recommend to leave this commented out unless needed. 
         #"Groups" = "https://graph.microsoft.com/beta/groups"
         #"DirectoryRoles" = "https://graph.microsoft.com/beta/directoryRoles"
         
