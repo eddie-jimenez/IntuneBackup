@@ -213,12 +213,30 @@ See the failure email report for built-in diagnostics, or use these common check
 
 ---
 
+## 🧾 License
+
+This project is licensed under the **GNU General Public License v3.0**.  
+See the [LICENSE](./LICENSE) file for details.
+
+[![PowerShell](https://img.shields.io/badge/PowerShell-7.x-blue.svg)](https://github.com/PowerShell/PowerShell)  
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](./LICENSE)
+
+---
+
 ## 👤 Author
+
+**Eddie Jimenez**  
+[![GitHub](https://img.shields.io/badge/GitHub-eddie--jimenez-black?logo=github&logoColor=white)](https://github.com/eddie-jimenez)  
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-eddie_p_jimenez-blue?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/eddie-p-jimenez/)
+
 Although this script has been tested extensively and successfully, PLEASE ensure you are thoroughly testing this on your own prior to introducing this into production.
 You are free to use this script at your own risk. Please credit me if you do 🙂
 
+---
 
-**Eddie Jimenez**  
-@edtrax
+<p align="center">
+  <strong>⭐ If this project helps you, please give it a star! ⭐</strong>
+</p>
+
 
 
